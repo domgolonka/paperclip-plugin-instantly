@@ -1,0 +1,47 @@
+{
+  "name": "@domgolonka/paperclip-plugin-instantly",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Instantly.ai cold email connector for Paperclip agents",
+  "scripts": {
+    "generate": "node ./scripts/gen-endpoints.mjs",
+    "build": "node ./esbuild.config.mjs",
+    "dev": "node ./esbuild.config.mjs --watch",
+    "test": "vitest run --config ./vitest.config.ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm run typecheck && npm test"
+  },
+  "paperclipPlugin": {
+    "manifest": "./dist/manifest.js",
+    "worker": "./dist/worker.js"
+  },
+  "keywords": [
+    "paperclip",
+    "plugin",
+    "instantly",
+    "cold-email"
+  ],
+  "author": "Dominik Golonka",
+  "license": "MIT",
+  "devDependencies": {
+    "@paperclipai/plugin-sdk": "2026.1001.0",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.27.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  },
+  "files": [
+    "dist/*.js"
+  ],
+  "engines": {
+    "node": ">=24.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domgolonka/paperclip-plugin-instantly.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/domgolonka/paperclip-plugin-instantly#readme"
+}
